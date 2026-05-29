@@ -55,7 +55,7 @@ function Agent() {
 
   // Auto-scroll to bottom of chat
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    chatEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }, [agent?.history, isTyping]);
 
   if (!agent) {

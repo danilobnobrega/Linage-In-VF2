@@ -1,5 +1,14 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'react-router-dom';
+import React, { useEffect, useLayoutEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, useParams, useLocation } from 'react-router-dom';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useLayoutEffect(() => {
+    const main = document.querySelector('.main-content');
+    if (main) main.scrollTop = 0;
+  }, [pathname]);
+  return null;
+}
 
 const UNLOCKED_AGENTS = ['dexter'];
 
@@ -25,6 +34,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <CustomCursor />
       <div className="app-layout">
         <Sidebar />

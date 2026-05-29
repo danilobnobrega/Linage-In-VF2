@@ -28,7 +28,7 @@ function Advisor() {
 
 
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    chatEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }, [advisorHistory, isTyping]);
 
   const handleSendMessage = (e) => {
